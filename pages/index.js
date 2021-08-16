@@ -1,66 +1,74 @@
 import Head from 'next/head'
-import Banner from '../components/Banner';
+import Banner from '../components/Banner'
 import Header from '../components/Header'
-import SmallCard from '../components/SmallCard';
+import MediumCard from '../components/MediumCard'
+import SmallCard from '../components/SmallCard'
+import Tesi from '../components/Tesi'
 
-export default function Home({exploreData}) {
-
+export default function Home({ exploreData, cardData }) {
   return (
     <div className="">
       <Head>
         <title>muffy airbnb</title>
         <link rel="icon" href="/favicon.ico" />
-
       </Head>
 
-      
       {/* header */}
 
-      <Header/>
-    
-      <Banner/>
+      <Header />
+
+      <Banner />
       <main className="max-w-7xl mx-auto    px-8 sm:px-16">
-        <section className="pt-6" >
-          <h2 className="text-4xl font-semibold pb-5 " >
-        explore nearby
-          </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" >
-        {exploreData?.map(({ img, distance, location}) => (
-        <SmallCard key={img} img={img} distance={distance} location={location}/>
+        <section className="pt-6">
+          <h2 className="text-4xl font-semibold pb-5 ">explore nearby</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {exploreData?.map(({ img, distance, location }) => (
+              <SmallCard
+                key={img}
+                img={img}
+                distance={distance}
+                location={location}
+              />
             ))}
-          
-        </div>
-                
+          </div>
         </section>
         <section>
-          <h1 className="text-4xl font-semibold py-8 ">
-            live anywhere
-          </h1>
+          <h2 className="text-4xl font-semibold py-8 ">live anywhere</h2>
+          <div className="flex space-x-3 caret-gray-20 overflow-scroll  scrollbar-hide p-3 ml-3">
+            {cardData.map(({ img, title }) => (
+              <MediumCard key={img} img={img} title={title} />
+            ))}
+          </div>
+        </section>
+        <section>
+          <div className="p-5 mr-4">
+            <Tesi />
+          </div>
         </section>
       </main>
-  
+
       {/* RIGHT */}
 
       {/* CENTRE */}
 
       {/* FOOTER */}
-
     </div>
   )
 }
 
+export async function getStaticProps() {
+  const exploreData = await fetch('https://links.papareact.com/pyp').then(
+    (res) => res.json()
+  )
 
-
- export async function getStaticProps() {
-   
-    const exploreData = await fetch('https://links.papareact.com/pyp').
-   then( 
-     (res) => res.json()
-   );
-   return {
-     props :   {
-        exploreData,
-       },
-   };
- }
+  const cardData = await fetch('https://links.papareact.com/zp1').then((res) =>
+    res.json()
+  )
+  return {
+    props: {
+      exploreData,
+      cardData,
+    },
+  }
+}
