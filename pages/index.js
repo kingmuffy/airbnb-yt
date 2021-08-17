@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
+import LargeCard from '../components/LargeCard'
 import MediumCard from '../components/MediumCard'
 import SmallCard from '../components/SmallCard'
 import Tesi from '../components/Tesi'
+import Footer from '../components/Footer'
 
 export default function Home({ exploreData, cardData }) {
   return (
@@ -46,7 +48,16 @@ export default function Home({ exploreData, cardData }) {
             <Tesi />
           </div>
         </section>
+        <section>
+          <LargeCard
+            img="https://links.papareact.com/4cj"
+            title="the Greatest Outdoor"
+            description="Wishlists curated by Airbnb"
+            buttonText="Get Inspired"
+          />
+        </section>
       </main>
+      <Footer />
 
       {/* RIGHT */}
 
