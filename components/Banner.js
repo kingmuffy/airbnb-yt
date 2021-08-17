@@ -10,7 +10,7 @@ function Banner() {
         objectFit="cover"
       />
       <div className="absolute top-1/2 w-full text-center  ">
-        <p className="text-sm sm:text-lg">Farida is coming soon</p>
+        <p className="text-sm sm:text-lg">remembert is coming soon</p>
         <button className="text-purple-500 bg-white px-10 py-4 shadow-md rounded-full  font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150">
           I'm flexible
         </button>
