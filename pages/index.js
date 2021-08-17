@@ -43,11 +43,11 @@ export default function Home({ exploreData, cardData }) {
             ))}
           </div>
         </section>
-        <section>
+        {/* <section>
           <div className="p-5 mr-4">
             <Tesi />
           </div>
-        </section>
+        </section> */}
         <section>
           <LargeCard
             img="https://links.papareact.com/4cj"
